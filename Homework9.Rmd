@@ -15,7 +15,7 @@ library(tidyverse)
 
 ```{r, echo=TRUE}
 df <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
-head(df, 100)
+head(df)
 ```
 
 
@@ -77,6 +77,8 @@ df %>%
   geom_bar()
 ```
 
+
+Siddharthan:
 The plot above shows that out of the 173 avengers, there have been between 60 and 75 avengers that have at least died once. This agrees with the analysis in FiveThirtyEight where they found 69 had died at least one time after they joined the team. (Sidarthan Prakash)
 
 ```{r, echo=TRUE}
@@ -90,4 +92,18 @@ df2 %>%
   ggplot(aes(x = Returns)) +
   geom_bar()
 ```
+
+Gauthaman: 
 The analysis in the article states that around 2/3 of the times the heros return from the death, and according to the graph with the new data from this is true. the Yes has a little over 50 and the No has a little over 20, so the articles analysis is correct.
+
+```{r, echo=TRUE}
+df3 <- df2 %>% filter(Death_Time %in% c("2", "3"))
+table(df3$Return_Time)
+df3 %>%
+  ggplot(aes(x = Return_Time)) +
+  geom_bar()
+```
+
+
+Akash: 
+The article analysis said that during the second and third death 50 percent of avengers returned. I filtered the data based from the preexisting data to just include avengers who died 2-3 times. I am looking at the amount of times they returned during their second and third death. I was able to see that out of 15 entries, they returned 7 times. So the statement holds(7/15), "only a 50 percent chance they recovered from a second or third death."
