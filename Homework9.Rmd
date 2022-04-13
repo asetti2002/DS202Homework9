@@ -77,4 +77,17 @@ df %>%
   geom_bar()
 ```
 
-The plot above shows that out of the 173 avengers, there have been between 60 and 75 avengers that have at least died once. This agrees with the analysis in FiveThirtyEight where they found 69 had died at least one time after they joined the team.
+The plot above shows that out of the 173 avengers, there have been between 60 and 75 avengers that have at least died once. This agrees with the analysis in FiveThirtyEight where they found 69 had died at least one time after they joined the team. (Sidarthan Prakash)
+
+```{r, echo=TRUE}
+df %>%
+  ggplot(aes(x = Deaths)) +
+  geom_bar()
+```
+```{r, echo=TRUE}
+df2 <- df[df$Deaths == "Yes",]
+df2 %>%
+  ggplot(aes(x = Returns)) +
+  geom_bar()
+```
+The analysis in the article states that around 2/3 of the times the heros return from the death, and according to the graph with the new data from this is true. the Yes has a little over 50 and the No has a little over 20, so the articles analysis is correct.
