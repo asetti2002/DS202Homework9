@@ -9,10 +9,64 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(dplyr)
+library(tidyverse)
 ```
 
 
 ```{r, echo=TRUE}
 df <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
-head(df)
+head(df, 100)
+```
+
+
+
+```{r, echo=TRUE}
+# For Deaths
+df$Death_Time <- df
+df <- df %>%
+  mutate(Death_Time = case_when(
+    endsWith(Death5, "YES") ~ "5",
+    endsWith(Death4, "YES") ~ "4",
+    endsWith(Death3, "YES") ~ "3",
+    endsWith(Death2, "YES") ~ "2",
+    endsWith(Death1, "YES") ~ "1",
+    ))
+df$Deaths <- df
+df <- df %>%
+  mutate(Deaths = case_when(
+    endsWith(Death_Time, "1") ~ "Yes",
+    endsWith(Death_Time, "2") ~ "Yes",
+    endsWith(Death_Time, "3") ~ "Yes",
+    endsWith(Death_Time, "4") ~ "Yes",
+    endsWith(Death_Time, "5") ~ "Yes",
+    ))
+df<- df %>%
+  mutate_at(vars("Deaths"), ~replace_na(., "No"))
+
+
+# For Return 
+df$Return_Time <- df
+df <- df %>%
+  mutate(Return_Time = case_when(
+    endsWith(Return5, "YES") ~ "5",
+    endsWith(Return4, "YES") ~ "4",
+    endsWith(Return3, "YES") ~ "3",
+    endsWith(Return2, "YES") ~ "2",
+    endsWith(Return1, "YES") ~ "1",
+    ))
+df$Returns <- df
+df <- df %>%
+  mutate(Returns = case_when(
+    endsWith(Return_Time, "1") ~ "Yes",
+    endsWith(Return_Time, "2") ~ "Yes",
+    endsWith(Return_Time, "3") ~ "Yes",
+    endsWith(Return_Time, "4") ~ "Yes",
+    endsWith(Return_Time, "5") ~ "Yes",
+    ))
+
+df <- df %>%
+  mutate_at(vars("Returns"), ~replace_na(., "No"))
+
+df <- subset(df, select = -c(Death1: Return5))
+df
 ```
