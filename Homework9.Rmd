@@ -1,6 +1,6 @@
 ---
 title: 'Homework #9'
-author: "Akash Setti"
+author: "Akash Setti, Anuraag Pujari, Gauthaman Sethupathy, Siddharthan Prakash"
 date: "4/12/2022"
 output: html_document
 ---
