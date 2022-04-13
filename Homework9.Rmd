@@ -70,3 +70,11 @@ df <- df %>%
 df <- subset(df, select = -c(Death1: Return5))
 df
 ```
+
+```{r, echo=TRUE}
+df %>%
+  ggplot(aes(x = Deaths)) +
+  geom_bar()
+```
+
+The plot above shows that out of the 173 avengers, there have been between 60 and 75 avengers that have at least died once. This agrees with the analysis in FiveThirtyEight where they found 69 had died at least one time after they joined the team.
