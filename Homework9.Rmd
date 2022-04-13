@@ -107,3 +107,12 @@ df3 %>%
 
 Akash: 
 The article analysis said that during the second and third death 50 percent of avengers returned. I filtered the data based from the preexisting data to just include avengers who died 2-3 times. I am looking at the amount of times they returned during their second and third death. I was able to see that out of 15 entries, they returned 7 times. So the statement holds(7/15), "only a 50 percent chance they recovered from a second or third death."
+
+
+```{r, echo=TRUE}
+table(df$Deaths)
+```
+
+
+Anuraag:
+I confirmed with the article that "Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team." I was able to see the count of the amount of Avengers who died. 
