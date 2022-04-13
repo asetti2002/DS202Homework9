@@ -116,3 +116,8 @@ table(df$Deaths)
 
 Anuraag:
 I confirmed with the article that "Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team." I was able to see the count of the amount of Avengers who died. 
+
+
+Github repo link: https://github.com/asetti2002/DS202Homework9
+
+
