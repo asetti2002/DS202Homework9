@@ -81,11 +81,7 @@ df %>%
 Siddharthan:
 The plot above shows that out of the 173 avengers, there have been between 60 and 75 avengers that have at least died once. This agrees with the analysis in FiveThirtyEight where they found 69 had died at least one time after they joined the team. (Sidarthan Prakash)
 
-```{r, echo=TRUE}
-df %>%
-  ggplot(aes(x = Deaths)) +
-  geom_bar()
-```
+
 ```{r, echo=TRUE}
 df2 <- df[df$Deaths == "Yes",]
 df2 %>%
@@ -110,12 +106,16 @@ The article analysis said that during the second and third death 50 percent of a
 
 
 ```{r, echo=TRUE}
-table(df$Deaths)
+# table(df$Return_Time)
+new_df <- df %>% filter(Name.Alias %in% c('Anthony Edward "Tony" Stark', "Robert Bruce Banner", "Thor Odinson", "Steven Rogers", "Clinton Francis Barton", "Natalia Alianovna Romanova", "Pietro Maximoff", "Wanda Maximoff", "Victor Shade (alias)"))
+new_df
+
+
 ```
 
 
 Anuraag:
-I confirmed with the article that "Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team." I was able to see the count of the amount of Avengers who died. 
+I confirmed with the article that the 9 avengers shown in the article died at least once. I filtered the data, and created a data frame that just incorporates those Avengers. In the death column we can see that it is all yes's. 
 
 
 Github repo link: https://github.com/asetti2002/DS202Homework9
